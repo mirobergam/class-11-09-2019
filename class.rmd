@@ -14,13 +14,17 @@ library(tidyverse)
 
 ```
 
+### Relationship between partisanship and Democratic vote
+
 ```{r}
 
 data <- read_sheet("13NhlT-Oik5P4NOKRWwrJ7xZQlddFNk81HHEw9wkWglM")
 
-ggplot(data, aes(income, partisanship)) +
-  geom_jitter() +
+ggplot(data, aes(dvote, partisanship)) +
+  geom_jitter(alpha = 0.5, width = 0.2) +
   geom_smooth(method = "lm")
+
+lm(data = data, partisanship ~ dvote)
 
 ```
 
