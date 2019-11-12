@@ -1,0 +1,26 @@
+---
+title: "Class"
+author: "Miroslav Bergam"
+date: "11/12/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(googlesheets4)
+sheets_deauth()
+library(tidyverse)
+
+```
+
+```{r}
+
+data <- read_sheet("13NhlT-Oik5P4NOKRWwrJ7xZQlddFNk81HHEw9wkWglM")
+
+ggplot(data, aes(income, partisanship)) +
+  geom_jitter() +
+  geom_smooth(method = "lm")
+
+```
+
